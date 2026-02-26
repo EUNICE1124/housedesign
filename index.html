@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HouseDesign | Structural Excellence</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+
+<body oncontextmenu="return false;">
+    <div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en', 
+    includedLanguages: 'en,fr,es,de,it,pt,zh-CN,ar,ru,ja,hi,bn,ko,tr,vi,pl,nl,th,sw,yo', 
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <header>
+        <div class="logo"><img src="images/logo.png" alt="HouseDesign Logo"></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="store.php">Materials</a>
+            <a href="portfolio.php">Portfolio</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-overlay">
+            <h1>BUILDING WITH PRECISION</h1>
+            <p>Certified Structural Engineering & Site Supervision for the Modern World.</p>
+            <div class="hero-btns">
+                <a href="#appointment-section" class="btn-red">Book Appointment</a>
+                <a href="portfolio.php" class="btn-outline">View Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-bar">
+        <div class="stat-item"><strong>50+</strong><span>Projects Completed</span></div>
+        <div class="stat-item"><strong>12</strong><span>Years Experience</span></div>
+        <div class="stat-item"><strong>100%</strong><span>Safety Record</span></div>
+    </section>
+
+    <section id="appointment-section" style="padding: 60px 10%; background: white;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; align-items: start;">
+            
+            <div class="form-container">
+                <h2 style="color: var(--navy); margin-bottom: 10px;">Office Rendezvous</h2>
+                <p style="margin-bottom: 25px; color: #666;">Schedule a consultation with our lead engineers.</p>
+                
+                <form id="appointmentForm" onsubmit="handleBooking(event)">
+                    <div style="margin-bottom: 15px;">
+                        <input type="text" id="clientName" placeholder="Full Name" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <input type="email" id="clientEmail" placeholder="Email Address" required style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px;">
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <select id="serviceType" style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; background: white;">
+                            <option value="Structural Design">Structural Design & Analysis</option>
+                            <option value="Land Surveying">Land Surveying</option>
+                            <option value="Soil Analysis">Geotechnical (Soil) Analysis</option>
+                            <option value="Site Supervision">Site Supervision</option>
+                            <option value="Material Estimation">Material Estimation</option>
+                        </select>
+                    </div>
+
+                    <div style="margin-bottom: 15px;">
+                        <textarea id="requestDescription" placeholder="Describe your project (Location, number of floors, specific needs...)" 
+                                  style="width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 4px; height: 120px; font-family: inherit; resize: vertical;" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-red" style="width: 100%; padding: 15px; cursor: pointer; font-size: 1rem; font-weight: bold;">
+                        Secure My Appointment
+                    </button>
+                </form>
+            </div>
+
+            <div class="map-container">
+                <div class="map-placeholder" style="border-radius: 10px; overflow: hidden; box-shadow: 0 5px 15px rgba(0,0,0,0.1);">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15919.23456789!2d11.502!3d3.848!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zM8KwNTAnNTIuOCJOIDExwrAzMCcwNy4yIkU!5e0!3m2!1sen!2scm!4v1706000000000!5m2!1sen!2scm" 
+                            width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+                <div style="margin-top: 20px; text-align: center;">
+                    <p><strong>Headquarters:</strong> Yaoundé, Cameroon</p>
+                    <p>📞 +237 699978704 | +237 699978706</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+   <footer style="background: var(--navy); color: white; padding: 40px 10%; border-top: 5px solid var(--safety-red);">
+        <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+            <div>
+                <h2 style="color: var(--white);">HOUSEDESIGN</h2>
+                <p>Structural Engineering & Civil Works</p>
+            </div>
+            <div style="text-align: right;">
+                <p>📞 +237 699978704</p>
+                <p>📧 erictchouela@gmail.com</p>
+            </div>
+        </div>
+
+        <div style="text-align: center; margin-top: 30px; opacity: 0.3; font-size: 0.8rem;">
+            <p>© 2026 HouseDesign | <a href="login.php" style="color: white; text-decoration: none;">Staff Access</a></p>
+        </div>
+    </footer>
+
+</body>
+</html>

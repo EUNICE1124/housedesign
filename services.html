@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Engineering Services | Pillars of Excellence</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body oncontextmenu="return false;">
+    <div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en', 
+    includedLanguages: 'en,fr,es,de,it,pt,zh-CN,ar,ru,ja,hi,bn,ko,tr,vi,pl,nl,th,sw,yo', 
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <header>
+       <div class="logo"><img src="/images/logo.png" alt="HouseDesign Logo"></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="store.php">Materials</a>
+            <a href="portfolio.php">Portfolio</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <h1>Core Engineering Pillars</h1>
+        <div class="grid-3">
+            <div class="card">
+                <h3>Land Surveying</h3>
+                <p>Topographic mapping and boundary analysis using high-precision GPS technology.</p>
+            </div>
+            <div class="card">
+                <h3>Soil Analysis</h3>
+                <p>Geotechnical investigations to ensure foundation stability and load-bearing capacity.</p>
+            </div>
+            <div class="card">
+                <h3>Architectural Design</h3>
+                <p>Functional and aesthetic blueprints tailored for global industrial and residential standards.</p>
+            </div>
+            <div class="card">
+                <h3>Structural Engineering</h3>
+                <p>Advanced stress analysis and reinforced concrete design for durability.</p>
+            </div>
+            <div class="card" style="border-left: 5px solid var(--safety-red); margin-top: 20px;">
+             <h4>Total Solution Sync</h4>
+              <p>Our structural designs are optimized for the high-grade Steel and Cement available in our 
+               <a href="store.php" style="color: var(--safety-red); font-weight: bold;">Warehouse Catalog</a>.</p>
+            </div>
+            <div class="card">
+                <h3>Site Supervision</h3>
+                <p>On-site quality control and adherence to "as-built" technical specifications.</p>
+            </div>
+        </div>
+    </main>
+    <div id="quote-summary" style="position:relative; bottom: 0; width: 100%; background: var(--navy); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-top: 3px solid var(--safety-red); z-index: 2000;">
+    <h3>Estimated Material Investment: <span id="total-cost">after discaution</span></h3>
+    <a href="index.html#appointmentForm" class="btn-red">Finalize in Rendezvous</a>
+</div>
+
+<script>
+    let total = 0;
+    function addToQuote(price) {
+        total += price;
+        document.getElementById('total-cost').innerText = total.toLocaleString(undefined, {minimumFractionDigits: 2});
+        // Feedback to user
+        const btn = event.target;
+        btn.innerText = "Added ✓";
+        btn.style.background = "#28a745";
+        setTimeout(() => { btn.innerText = "Add to Quote"; btn.style.background = "var(--safety-red)"; }, 2000);
+    }
+</script>
+
+</body>
+<footer style="background: var(--navy); color: white; padding: 40px 10%; margin-top: 50px; border-top: 5px solid var(--safety-red);">
+    <div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+        <div>
+            <h2 style="color: var(--white);">HOUSEDESIGN</h2>
+            <p>Certified Structural & Civil Engineering Firm</p>
+            <p>License No: ENG-WW-2026-9901</p>
+        </div>
+        <div>
+            <h4>Office Rendezvous</h4>
+            <p>📞 Phone: +237 699978704||6</p>
+            <p>📧 Email: erictchouela@gmail.com</p>
+        </div>
+        <div>
+            <h4>Global Locations</h4>
+            <p>yaoundé, Cameroon</p>
+        </div>
+    </div>
+    <div style="text-align: center; margin-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); padding-top: 20px;">
+        <p>&copy; 2026 HOUSEDESIGN. Total Housing Solution Protected IP.</p>
+    </div>
+</footer>
+</html>

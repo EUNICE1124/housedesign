@@ -1,0 +1,199 @@
+:root {
+    --navy: #002366;
+    --safety-red: #D22B2B;
+    --white: #FFFFFF;
+    --light-gray: #F4F4F4;
+    --text: #333;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+body {
+    user-select: none;
+    -webkit-user-select: none;
+    background-color: var(--light-gray);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Header & Navigation */
+header {
+    background: var(--navy);
+    color: var(--white);
+    padding: 1rem 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position:relative;
+    top: 0;
+    z-index: 1000;
+    height: 200px;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+
+nav a:hover {
+    color: var(--safety-red);
+}
+
+/* Grid Systems */
+.container {
+    padding: 40px 10%;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Cards & Components */
+.card {
+    background: var(--white);
+    padding: 20px;
+    border-bottom: 4px solid var(--navy);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.btn-red {
+    background: var(--safety-red);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+}
+
+/* Portfolio Security Overlay */
+.watermark-container {
+    position: relative;
+    overflow: hidden;
+}
+
+.watermark-container::after {
+    content: "ENGINEERING PROPERTY - DO NOT COPY";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+    font-size: 2rem;
+    color: rgba(0,0,0,0.1);
+    white-space: nowrap;
+    pointer-events: none;
+}
+.logo {
+  display: flex;
+  align-items: center; 
+  width: 200px;        
+}
+
+.logo img {
+  max-width:fit-content;     
+  height:200px;      
+  display:flex;    
+  border-radius:700px;             
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.logo img:hover {
+  transform: scale(1.05);   /* Slight grow effect on hover */
+}
+#quote-summary {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: var(--navy);
+    color: white;
+    padding: 15px 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 3px solid var(--safety-red);
+    z-index: 2000;
+}
+/* Hero Section Styles */
+.hero {
+    height: 50vh;
+    background: linear-gradient(rgba(0,35,102,0.8), rgba(0,35,102,0.8)), url('images/site-background.jpg'); /* Add a nice construction photo here */
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.hero h1 { font-size: 3.5rem; letter-spacing: 2px; }
+
+.hero-btns { margin-top: 25px; }
+
+.btn-outline {
+    border: 2px solid rgb(81, 126, 215);
+    color: white;
+    padding: 12px 25px;
+    text-decoration: none;
+    margin-left: 10px;
+    transition: 0.3s;
+    border-radius: 200px;
+}
+
+.btn-outline:hover { background: white; color: var(--navy); }
+
+/* Stats Bar */
+.stats-bar {
+    display: flex;
+    justify-content: space-around;
+    background: var(--white);
+    padding: 30px 10%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.stat-item { text-align: center; }
+.stat-item strong { display: block; font-size: 2rem; color: var(--safety-red); }
+
+/* Grid and Form Tweaks */
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 50px; }
+
+.input-field {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.map-placeholder {
+    background: #e0e0e0;
+    border-left: 5px solid var(--safety-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer-grid {
+    display: flex; 
+    justify-content: space-between; 
+    padding: 40px 10%; 
+    background: var(--navy); 
+    color: white;
+}
