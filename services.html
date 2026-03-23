@@ -59,17 +59,12 @@ function googleTranslateElementInit() {
             </div>
         </div>
     </main>
-    <div id="quote-summary" style="position:relative; bottom: 0; width: 100%; background: var(--navy); color: white; padding: 15px 5%; display: flex; justify-content: space-between; align-items: center; border-top: 3px solid var(--safety-red); z-index: 2000;">
-    <h3>Estimated Material Investment: <span id="total-cost">after discaution</span></h3>
-    <a href="index.html#appointmentForm" class="btn-red">Finalize in Rendezvous</a>
-</div>
-
+    
 <script>
     let total = 0;
     function addToQuote(price) {
         total += price;
         document.getElementById('total-cost').innerText = total.toLocaleString(undefined, {minimumFractionDigits: 2});
-        // Feedback to user
         const btn = event.target;
         btn.innerText = "Added ✓";
         btn.style.background = "#28a745";

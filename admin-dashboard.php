@@ -55,6 +55,14 @@ function googleTranslateElementInit() {
                 </form>
             </div>
         </section>
+        <section class="admin-card">
+    <h2>Upload Company Video</h2>
+    <form action="upload_video.php" method="POST" enctype="multipart/form-data">
+        <input type="text" name="videoTitle" placeholder="Video Title (e.g., Site Inspection 2026)" required style="width:100%; margin-bottom:10px; padding:8px;">
+        <input type="file" name="companyVideo" accept="video/mp4,video/x-m4v,video/*" required>
+        <button type="submit" class="btn-red">Publish to About Page</button>
+    </form>
+</section>
 
         <section style="background: white; padding: 30px; border-radius: 8px; margin-bottom: 30px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
             <h3>Add New Material to Store</h3>
