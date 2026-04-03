@@ -2,18 +2,19 @@
 require 'db_connect.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    // Sanitize inputs to prevent SQL injection
-    $name = $conn->real_escape_string($_POST['clientName']);
-    $service = $conn->real_escape_string($_POST['serviceType']);
+    $name = $_POST['clientName'];
+    $service = $_POST['serviceType'];
 
-    $sql = "INSERT INTO inquiries (client_name, service_type) VALUES ('$name', '$service')";
+    // Using Prepared Statements to prevent SQL Injection
+    $stmt = $conn->prepare("INSERT INTO inquiries (client_name, service_type) VALUES (?, ?)");
+    $stmt->bind_param("ss", $name, $service);
 
-    if ($conn->query($sql) === TRUE) {
-        // Redirect back to home with success status
+    if ($stmt->execute()) {
         header("Location: index.html?status=success");
     } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
+        echo "Error: " . $conn->error;
     }
+    $stmt->close();
 }
 $conn->close();
 ?>

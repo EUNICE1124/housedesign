@@ -33,6 +33,7 @@ $video_query = $conn->query("SELECT * FROM about_videos ORDER BY uploaded_at DES
             <a href="services.html">Services</a>
             <a href="store.php">Materials</a>
             <a href="about.php" class="active">About Us</a>
+            <a href="portfolio.html">Portfolio</a>
         </nav>
     </header>
 

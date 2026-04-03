@@ -98,23 +98,24 @@ function googleTranslateElementInit() {
 
     <script>
         // VAULT LOGIC: Unlock the page
-        function checkVault() {
-            const pass = document.getElementById('vault-pass').value;
-            const correctPass = "YAOUNDE2026"; // Your secret code
+       function checkVault() {
+    const pass = document.getElementById('vault-pass').value;
+    if (pass === "DESIGN2026") {
+        document.getElementById('vault-overlay').style.display = 'none';
+        sessionStorage.setItem('vaultUnlocked', 'true');
+        loadAdminProjects();
+    } else {
+        document.getElementById('vault-error').style.display = 'block';
+    }
+    }
 
-            if (pass === correctPass) {
-                document.getElementById('vault-overlay').style.display = 'none';
-                document.getElementById('portfolio-content').style.display = 'block';
-            } else {
-                const error = document.getElementById('vault-error');
-                error.style.display = 'block';
-                // Visual feedback: brief shake
-                const box = document.querySelector('.vault-box');
-                box.style.transform = "translateX(10px)";
-                setTimeout(() => box.style.transform = "translateX(-10px)", 100);
-                setTimeout(() => box.style.transform = "translateX(0)", 200);
-            }
-        }
+     // Auto-unlock if they already entered the code this session
+     window.onload = function() {
+       if (sessionStorage.getItem('vaultUnlocked') === 'true') {
+        document.getElementById('vault-overlay').style.display = 'none';
+        loadAdminProjects();
+      }
+      };
 
         // FILTER LOGIC
         document.addEventListener('DOMContentLoaded', () => {
