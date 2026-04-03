@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio | HouseDesign Yaoundé</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body oncontextmenu="return false;">
+       <div id="google_translate_element"></div>
+
+<script type="text/javascript">
+function googleTranslateElementInit() {
+  new google.translate.TranslateElement({
+    pageLanguage: 'en', 
+    includedLanguages: 'en,fr,es,de,it,pt,zh-CN,ar,ru,ja,hi,bn,ko,tr,vi,pl,nl,th,sw,yo', 
+    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+  }, 'google_translate_element');
+}
+</script>
+    <div id="vault-overlay">
+        <div class="vault-box">
+            <h2><span style="color: var(--safety-red);">HOUSE</span>DESIGN VAULT</h2>
+            <p>Enter Authorization Code to View Portfolio</p>
+            <input type="password" id="vault-pass" class="input-field" placeholder="••••••••">
+            <button onclick="checkVault()" class="btn-red">Unlock Access</button>
+            <p id="vault-error" style="color: var(--safety-red); display:none; margin-top:10px; font-weight:bold;">Access Denied: Invalid Code</p>
+        </div>
+    </div>
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+    <header>
+        <div class="logo"><img src="images/logo.png" alt="HouseDesign Logo"></div>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="services.html">Services</a>
+            <a href="store.php">Materials</a>
+            <a href="about.html">About Us</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+        </nav>
+    </header>
+
+    <main class="portfolio-container" id="portfolio-content" style="display: none;">
+        <header class="portfolio-header">
+            <h1>Our Architectural Works</h1>
+            <p>Showcasing modern designs across Cameroon.</p>
+        </header>
+
+        <div class="filter-controls">
+            <button class="filter-btn active" data-filter="all">All Projects</button>
+            <button class="filter-btn" data-filter="residential">Residential</button>
+            <button class="filter-btn" data-filter="commercial">Commercial</button>
+            <button class="filter-btn" data-filter="workspace">Workspace</button>
+        </div>
+
+        <div class="portfolio-grid" id="portfolio-grid">
+    <div class="portfolio-item residential">
+        <div class="project-card">
+            <div class="watermark-container">
+                 <img src="images/villa-bastos.jpg" alt="Modern Villa Bastos" style="width:100%; height:250px; object-fit:cover;">
+            </div>
+            <div class="item-info">
+                <h3>Contemporary Villa</h3>
+                <span>Residential | Bastos, Yaoundé</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-item commercial">
+        <div class="project-card">
+            <div class="watermark-container">
+                 <img src="images/apartment-complex.jpg" alt="Apartment Complex" style="width:100%; height:250px; object-fit:cover;">
+            </div>
+            <div class="item-info">
+                <h3>The Heights Apartments</h3>
+                <span>Commercial | Ngousso</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="portfolio-item workspace">
+        <div class="project-card">
+            <div class="watermark-container">
+                 <img src="images/tech-office.jpg" alt="Office Space" style="width:100%; height:250px; object-fit:cover;">
+            </div>
+            <div class="item-info">
+                <h3>Tech Hub Offices</h3>
+                <span>Workspace | Akwa, Douala</span>
+            </div>
+        </div>
+    </div>
+</div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 HouseDesign Yaoundé. Built by Françoise.</p>
+    </footer>
+
+    <script>
+        // VAULT LOGIC: Unlock the page
+        function checkVault() {
+            const pass = document.getElementById('vault-pass').value;
+            const correctPass = "YAOUNDE2026"; // Your secret code
+
+            if (pass === correctPass) {
+                document.getElementById('vault-overlay').style.display = 'none';
+                document.getElementById('portfolio-content').style.display = 'block';
+            } else {
+                const error = document.getElementById('vault-error');
+                error.style.display = 'block';
+                // Visual feedback: brief shake
+                const box = document.querySelector('.vault-box');
+                box.style.transform = "translateX(10px)";
+                setTimeout(() => box.style.transform = "translateX(-10px)", 100);
+                setTimeout(() => box.style.transform = "translateX(0)", 200);
+            }
+        }
+
+        // FILTER LOGIC
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttons = document.querySelectorAll('.filter-btn');
+            const items = document.querySelectorAll('.portfolio-item');
+
+            buttons.forEach(button => {
+                button.addEventListener('click', () => {
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    button.classList.add('active');
+                    const filter = button.getAttribute('data-filter');
+                    items.forEach(item => {
+                        if (filter === 'all' || item.classList.contains(filter)) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                });
+            });
+        });
+
+        // PROTECTION LOGIC
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.onkeydown = function(e) {
+            if (e.keyCode == 123 || 
+                (e.ctrlKey && e.shiftKey && (e.keyCode == 'I'.charCodeAt(0) || e.keyCode == 'J'.charCodeAt(0))) || 
+                (e.ctrlKey && e.keyCode == 'U'.charCodeAt(0))) {
+                return false;
+            }
+        };
+    </script>
+    <script>
+    function loadAdminProjects() {
+        const adminFiles = JSON.parse(localStorage.getItem('db_blueprints')) || [];
+        const portfolioGrid = document.getElementById('portfolio-grid');
+
+        adminFiles.forEach(fileName => {
+            // Create a new portfolio item div
+            const projectCard = document.createElement('div');
+            projectCard.className = 'portfolio-item residential'; // Defaulting to residential
+            
+            projectCard.innerHTML = `
+                <div class="card">
+                    <div class="image-placeholder" style="height:200px; background:#222; display:flex; align-items:center; justify-content:center; color:white; flex-direction:column;">
+                        <span style="font-size:3rem;">📄</span>
+                        <p style="font-size:0.8rem; margin-top:10px;">PROPRIETARY BLUEPRINT</p>
+                    </div>
+                    <div class="portfolio-info" style="padding:15px;">
+                        <h3 style="color:var(--navy);">${fileName}</h3>
+                        <p>Technical Documentation & Structural Plan</p>
+                        <span class="tag" style="background:var(--safety-red); color:white; padding:2px 8px; border-radius:4px; font-size:0.7rem;">VAULT SECURED</span>
+                    </div>
+                </div>
+            `;
+            portfolioGrid.appendChild(projectCard);
+        });
+    }
+
+    // Run this after the vault is unlocked in your checkVault() function
+    // or simply on window load if the vault is already open.
+    window.addEventListener('DOMContentLoaded', loadAdminProjects);
+</script>
+</body>
+</html>
