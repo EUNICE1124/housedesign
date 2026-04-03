@@ -31,7 +31,7 @@ function googleTranslateElementInit() {
             <a href="index.html">Home</a>
             <a href="services.html">Services</a>
             <a href="store.php" class="active">Materials</a>
-            <a href="about.html">About Us</a>
+            <a href="about.php">About Us</a>
             <a href="portfolio.html">Portfolio</a>
         </nav>
     </header>
